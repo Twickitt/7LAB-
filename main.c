@@ -1,4 +1,3 @@
-#include "Windows.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -14,10 +13,6 @@
 
 
 int main(){
-
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-
 
     int count;
 do {
@@ -49,6 +44,11 @@ do {
         printf("0. Exit\n> ");
         scanf("%d", &choice);
         if (choice == 0) break;
+
+        if(choice < 1 || choice > 3){
+            printf("\nInvalid algorithm number. Number should be from 1 to 3. Try again\n");
+            continue;
+        }
 
         printf("\nSelect Direction (1 for ascending or any other digit for descending):\n> ");
         scanf("%d", &order);
